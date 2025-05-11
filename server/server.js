@@ -34,7 +34,16 @@ wss.on('connection', (ws) => {
     });
 });
 
-app.use(express.static('client'));
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; " +
+    "connect-src 'self' ws://localhost:3000; " +
+    "style-src 'self' 'unsafe-inline' https://www.gstatic.com; " +  // Разрешает стили с gstatic.com
+    "script-src 'self' 'unsafe-inline'"
+  );
+  next();
+});
 
 server.listen(3000, '0.0.0.0', () => {
     console.log('Game server running on http://0.0.0.0:3000');
