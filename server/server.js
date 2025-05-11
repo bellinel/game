@@ -36,13 +36,13 @@ wss.on('connection', (ws) => {
 
 app.use((req, res, next) => {
   res.setHeader("Content-Security-Policy",
-    "default-src '*'; " +
+    "default-src 'none'; " +
     "script-src 'self'; " +
     "style-src 'self' https://www.gstatic.com; " +
+    "style-src-elem 'self' https://www.gstatic.com; " + // <- Добавлено
     "connect-src 'self';"
   );
   next();
-});
 
 server.listen(3000, '0.0.0.0', () => {
     console.log('Game server running on http://0.0.0.0:3000');
