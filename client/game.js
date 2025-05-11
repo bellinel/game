@@ -1,5 +1,5 @@
 // WebSocket setup
-const socket = new WebSocket('ws://178.172.187.99:3000');
+const socket = new WebSocket('ws://109.196.100.195:3000');
 let playerId = null;
 let remotePlayer = null;
 
