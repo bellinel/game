@@ -36,7 +36,7 @@ wss.on('connection', (ws) => {
 
 app.use((req, res, next) => {
   res.setHeader("Content-Security-Policy",
-    "default-src 'none'; " +
+    "default-src '*'; " +
     "script-src 'self'; " +
     "style-src 'self' https://www.gstatic.com; " +
     "connect-src 'self';"
