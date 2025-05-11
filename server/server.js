@@ -35,7 +35,12 @@ wss.on('connection', (ws) => {
 });
 
 app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'none'; style-src 'self' https://www.gstatic.com;");
+  res.setHeader("Content-Security-Policy",
+    "default-src 'none'; " +
+    "script-src 'self'; " +
+    "style-src 'self' https://www.gstatic.com; " +
+    "connect-src 'self';"
+  );
   next();
 });
 
