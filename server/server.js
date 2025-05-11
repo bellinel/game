@@ -35,13 +35,7 @@ wss.on('connection', (ws) => {
 });
 
 app.use((req, res, next) => {
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self'; " +
-    "connect-src 'self' ws://localhost:3000; " +
-    "style-src 'self' 'unsafe-inline' https://www.gstatic.com; " +  // Разрешает стили с gstatic.com
-    "script-src 'self' 'unsafe-inline'"
-  );
+  res.setHeader("Content-Security-Policy", "default-src 'none'; style-src 'self' https://www.gstatic.com;");
   next();
 });
 
