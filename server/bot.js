@@ -4,6 +4,6 @@ const bot = new TelegramBot(token, { polling: true });
 
 bot.onText(/\/invite/, (msg) => {
     const chatId = msg.chat.id;
-    const link = 'http://localhost:3000';
+    const link = 'http://109.196.100.195:3000';
     bot.sendMessage(chatId, `Приглашение в игру: ${link}`);
 });
